@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hallo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+ <h1 id="mainText">Hello! You must be here for a reason, right? I am Akhil, and you? 👀</h1>
+        <p class="hobbies-sentence">
+             <span id="currentHobby">🤖 Machine Learning</span>.
+        </p>
+    </header>
+<div class="custom-shape-divider-top-1729964424">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+    </svg>
+</div>
+    <footer>
+        <div class="question" id="question"></div>
+    </footer>
+
+    <script>
+        const hobbies = [
+            "Are you interested in 🤖 Machine Learning ?",
+            "What are your opinions on 🧠 AI 🤔",
+            "I use linux 🐧 Linux systems and you ?",
+            "🏋️‍♂️ Do you even Lift ?",
+            "✈️ traveling to new places? I am in 🙋🏻",
+            "🚗 Whats Your favourite Car",
+            " How about 🏎️ cheering for your favorite Formula 1 team ?"
+        ];
+
+        let hobbyIndex = 0;
+
+        function shuffleHobbies() {
+            const hobbyElement = document.getElementById("currentHobby");
+            hobbyElement.textContent = hobbies[hobbyIndex];
+            hobbyIndex = (hobbyIndex + 1) % hobbies.length;
+        }
+
+        // Shuffle hobbies every 2 seconds
+        setInterval(shuffleHobbies, 2000);
+        const questions = [
+            "Why are you here? I mean, you are looking for something.",
+            "What's your email?",
+            "What's your last name?",
+            "What's your nationality?",
+            "What brings you to this website?",
+            "Do you need help with something specific?",
+            "Where are you from?",
+            "How can I assist you today?",
+            "Are you enjoying your visit so far?",
+            "What’s your favorite hobby?"
+        ];
+
+        let questionIndex = 0;
+
+        function shuffleQuestions() {
+            const questionElement = document.getElementById("question");
+            questionElement.textContent = questions[questionIndex];
+            questionIndex = (questionIndex + 1) % questions.length;
+        }
+
+        // Shuffle questions every 4 seconds
+        setInterval(shuffleQuestions, 4000);
+
+        // Initialize the first question
+        shuffleQuestions();
+
+        // Show form when question is clicked
+        const questionElement = document.getElementById("question");
+        questionElement.addEventListener('click', function() {
+            const mainText = document.getElementById("mainText");
+            mainText.textContent = questionElement.textContent;
+
+            const formHtml = `
+                <form id="userForm" action="/submit" method="POST" class="fade-in">
+                    <input type="text" name="userInput" id="userInput" rows="5" required>
+                    <button type="submit">That's all</button>
+                </form>
+            `;
+
+            mainText.insertAdjacentHTML('afterend', formHtml);
+
+            document.querySelector('footer').style.display = 'none'; // Hide footer after question click
+        });
+    </script>
+</body>
+</html>

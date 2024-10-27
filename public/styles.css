@@ -1,0 +1,142 @@
+/* Reset some basic styles */
+body, h1, footer {
+    margin: 0;
+    padding: 0;
+    font-family: "Courier New", Courier, monospace;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    color: #ECF0F1; /* Light Grey */
+    overflow: hidden; /* Prevents scrolling */
+}
+
+/* Animated Gradient Background */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(270deg, #2C3E50, #1ABC9C, #34495E, #16A085);
+    background-size: 800% 800%;
+    animation: gradientAnimation 15s ease infinite;
+    z-index: -1; /* Places the gradient behind all content */
+}
+
+/* Gradient Animation */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+header {
+    background-color: rgba(26, 188, 156, 0.8); /* Semi-transparent Turquoise */
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: all 0.5s ease;
+    z-index: 1; /* Ensures header appears above the background */
+}
+
+footer {
+    background-color: rgba(52, 73, 94, 0.9); /* Semi-transparent Darker Blue-Grey */
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    flex-shrink: 0;
+    z-index: 1;
+}
+
+.question {
+    font-size: 18px;
+    color: #ECF0F1; /* Light Grey */
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.question:hover {
+    color: #1ABC9C; /* Turquoise */
+}
+
+form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 25px;
+    border: 2px solid #1ABC9C; /* Turquoise */
+    width: 80%;
+    max-width: 600px;
+    height:120px;
+    margin-bottom: 15px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #16A085; /* Darker Turquoise */
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #1ABC9C;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: "Courier New", Courier, monospace;
+}
+
+button:hover {
+    background-color: #16A085; /* Darker Turquoise */
+}
+
+.hobbies-sentence {
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.custom-shape-divider-top-1729964424 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1729964424 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+}
+
+.custom-shape-divider-top-1729964424 .shape-fill {
+    fill: #FFFFFF;
+}
